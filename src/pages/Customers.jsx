@@ -1,25 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import API from "../services/api";
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
   const [name, setName] = useState("");
-  const [gst, setGst] = useState("");
+  const [gstNumber, setGstNumber] = useState("");
   const [address, setAddress] = useState("");
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
+  const fetchCustomers = async () => {
+    try {
+      const res = await API.get("/customers");
+      setCustomers(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newCustomer = {
-      name,
-      gst,
-      address,
-    };
+    try {
+      await API.post("/customers", {
+        name,
+        gstNumber,
+        address,
+      });
 
-    setCustomers([...customers, newCustomer]);
+      setName("");
+      setGstNumber("");
+      setAddress("");
 
-    setName("");
-    setGst("");
-    setAddress("");
+      fetchCustomers();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -42,8 +60,8 @@ function Customers() {
           <input
             type="text"
             className="form-control"
-            value={gst}
-            onChange={(e) => setGst(e.target.value)}
+            value={gstNumber}
+            onChange={(e) => setGstNumber(e.target.value)}
           />
         </div>
 
@@ -75,10 +93,10 @@ function Customers() {
         </thead>
 
         <tbody>
-          {customers.map((customer, index) => (
-            <tr key={index}>
+          {customers.map((customer) => (
+            <tr key={customer._id}>
               <td>{customer.name}</td>
-              <td>{customer.gst}</td>
+              <td>{customer.gstNumber}</td>
               <td>{customer.address}</td>
             </tr>
           ))}
