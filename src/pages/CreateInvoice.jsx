@@ -1,3 +1,4 @@
+import API from "../services/api";
 import { useState } from "react";
 
 function CreateInvoice() {
@@ -48,7 +49,29 @@ function CreateInvoice() {
 
   const grandTotal = subtotal + gstAmount;
 
-  return (
+  const saveInvoice = async () => {
+  try {
+    const invoiceData = {
+      invoiceNo,
+      customerName,
+      customerGST,
+      items,
+      subtotal,
+      gstAmount,
+      grandTotal,
+    };
+
+    await API.post("/invoices", invoiceData);
+
+    alert("Invoice Saved Successfully!");
+
+   } catch (error) {
+    console.error(error);
+    alert("Failed to save invoice");
+  }
+};
+
+  return(
     <div className="container mt-4">
 
       <div className="card p-4 mb-4">
@@ -187,6 +210,13 @@ function CreateInvoice() {
         <h5>GST: ₹{gstAmount.toFixed(2)}</h5>
         <h4>Total: ₹{grandTotal.toFixed(2)}</h4>
       </div>
+      <div className="mt-3 d-flex gap-2">
+         <button
+          className="btn btn-primary"
+          onClick={saveInvoice}
+        >
+           Save Invoice
+         </button>
 
       <div className="mt-3">
         <button
@@ -196,9 +226,8 @@ function CreateInvoice() {
           Print Invoice
         </button>
       </div>
-
     </div>
-  );
+</div>
+  );  
 }
-
 export default CreateInvoice;

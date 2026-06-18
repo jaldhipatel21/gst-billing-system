@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 const customerRoutes = require("./routes/customerRoutes");
 const productRoutes = require("./routes/productRoutes");
 const invoiceRoutes = require("./routes/invoiceRoutes");
+const companyRoutes = require("./routes/companyRoutes");
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use("/api/customers", customerRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/invoices", invoiceRoutes);
-
+app.use("/api/company", companyRoutes);
 app.get("/", (req, res) => {
   res.send("GST Billing Backend Running...");
 });

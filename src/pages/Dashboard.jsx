@@ -32,9 +32,20 @@ function Dashboard() {
             </Link>
           </div>
         </div>
+
+        <div className="col-md-4 mt-4">
+          <div className="card p-3">
+             <h3>Invoice History</h3>
+            <Link to="/invoice-history" className="btn btn-warning
+            ">
+             invoice History
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
 
 export default Dashboard;
