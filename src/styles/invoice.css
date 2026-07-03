@@ -1,0 +1,39 @@
+.invoice-box{
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #000;
+    font-size: 14px;
+}
+.invoice-header{
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+.company-name{
+    font-size: 28px;
+    font-weight: bold;
+}
+.section-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.table{
+    margin-top: 15px;
+}
+.total-section{
+    text-align: right;
+    margin-top: 20px;
+}
+.signature{
+    margin-top: 60px;
+    text-align: right;
+}
+@media print{
+    button{
+        display: none;
+    }
+    .invoice-box{
+        border: none;
+    }
+}

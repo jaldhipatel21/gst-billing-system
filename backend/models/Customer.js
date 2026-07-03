@@ -6,12 +6,21 @@ const customerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    gstNumber: {
+    gstin: {
       type: String,
     },
     address: {
       type: String,
     },
+    state: {
+      type: String,
+    },
+      email: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    }
   },
   {
     timestamps: true,

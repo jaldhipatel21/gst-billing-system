@@ -10,9 +10,6 @@ const productSchema = new mongoose.Schema(
     gst: Number,
     rate: Number,
   },
-  {
-    timestamps: true,
-  }
-);
+  {timestamps: true,});
 
 module.exports = mongoose.model("Product", productSchema);

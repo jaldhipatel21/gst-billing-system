@@ -1,0 +1,143 @@
+{
+  "invoices": [
+    {
+      "_id": "6a36ce826c1eecda84479991",
+      "invoiceNo": "INV-0002",
+      "customerName": "sanjaykumar",
+      "customerGST": "9328935907",
+      "items": [
+        {
+          "product": "corogated box",
+          "qty": 50000,
+          "rate": 18,
+          "gst": 5,
+          "amount": 900000,
+          "_id": "6a36ce826c1eecda84479992"
+        }
+      ],
+      "subtotal": 900000,
+      "gstAmount": 45000,
+      "grandTotal": 945000,
+      "createdAt": "2026-06-20T17:31:46.478Z",
+      "updatedAt": "2026-06-21T17:11:14.092Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a3772a90202bc8123d9d798",
+      "invoiceNo": "INV-0003",
+      "customerName": "het",
+      "customerGST": "8487974709",
+      "items": [
+        {
+          "product": "corogated box",
+          "qty": 50000,
+          "rate": 18,
+          "gst": 5,
+          "amount": 900000,
+          "_id": "6a3772a90202bc8123d9d799"
+        },
+        {
+          "product": "box",
+          "qty": 3000,
+          "rate": 242,
+          "gst": 5,
+          "amount": 726000,
+          "_id": "6a3772a90202bc8123d9d79a"
+        },
+        {
+          "product": "corogated box",
+          "qty": 677,
+          "rate": 18,
+          "gst": 5,
+          "amount": 12186,
+          "_id": "6a3772a90202bc8123d9d79b"
+        }
+      ],
+      "subtotal": 1638186,
+      "gstAmount": 81909.3,
+      "grandTotal": 1720095.3,
+      "createdAt": "2026-06-21T05:12:09.270Z",
+      "updatedAt": "2026-06-21T17:11:44.512Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a3adc2b956166e3d6e6fbf4",
+      "invoiceNo": "INV-0004",
+      "customerName": "sanjaykumar",
+      "customerGST": "986986096",
+      "items": [
+        {
+          "product": "box",
+          "qty": 100000,
+          "rate": 242,
+          "gst": 5,
+          "amount": 24200000,
+          "_id": "6a3adc2b956166e3d6e6fbf5"
+        }
+      ],
+      "subtotal": 24200000,
+      "gstAmount": 1210000,
+      "grandTotal": 25410000,
+      "createdAt": "2026-06-23T19:19:07.946Z",
+      "updatedAt": "2026-06-23T19:19:07.946Z",
+      "__v": 0
+    }
+  ],
+  "customers": [
+    {
+      "_id": "6a2efdb47f24745386d4bd18",
+      "name": "jaldhi",
+      "gstNumber": "j211020048888",
+      "address": "b/49,vatsalycity",
+      "createdAt": "2026-06-14T19:15:00.236Z",
+      "updatedAt": "2026-06-14T19:15:00.236Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a358a6ec653ea1719d09a58",
+      "name": "het",
+      "gstin": "46342652434",
+      "address": "B/49 vatsly city",
+      "state": "Gujarat",
+      "email": "het29@gmail.com",
+      "phone": "09081629049",
+      "createdAt": "2026-06-19T18:29:02.274Z",
+      "updatedAt": "2026-06-19T18:29:02.274Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a363353dae07818d6cacb41",
+      "name": "sanjaykumar",
+      "gstin": "986986096",
+      "address": "B/49 vatsly city",
+      "state": "Gujarat",
+      "email": "het29@gmail.com",
+      "phone": "09081629049",
+      "createdAt": "2026-06-20T06:29:39.062Z",
+      "updatedAt": "2026-06-20T06:29:39.062Z",
+      "__v": 0
+    }
+  ],
+  "products": [
+    {
+      "_id": "6a358880c653ea1719d09a51",
+      "name": "box",
+      "hsn": "23ed",
+      "gst": 5,
+      "rate": 242,
+      "createdAt": "2026-06-19T18:20:48.438Z",
+      "updatedAt": "2026-06-19T18:20:48.438Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a363384dae07818d6cacb42",
+      "name": "corogated box",
+      "hsn": "896",
+      "gst": 5,
+      "rate": 18,
+      "createdAt": "2026-06-20T06:30:28.106Z",
+      "updatedAt": "2026-06-20T06:30:28.106Z",
+      "__v": 0
+    }
+  ]
+}
