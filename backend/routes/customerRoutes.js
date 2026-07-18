@@ -1,3 +1,4 @@
+const authMiddleware = require("../middleware/authMiddleware");
 const express = require("express");
 const router = express.Router();
 const Customer = require("../models/Customer");
@@ -13,7 +14,7 @@ router.post("/", async (req, res) => {
 });
 
 // Get All Customers
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const customers = await Customer.find();
     res.json(customers);

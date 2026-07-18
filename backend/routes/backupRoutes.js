@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const authMiddleware = require("../middleware/authMiddleware");
+const roleMiddleware = require("../middleware/roleMiddleware");
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,"uploads/");
@@ -18,7 +20,7 @@ const Product = require("../models/Product");
 // ====================
 // Backup Database
 // ====================
-router.get("/", async (req, res) => {
+router.get("/",authMiddleware,roleMiddleware("admin"),async (req, res)=> {
     try {
         const invoices = await Invoice.find();
         const customers = await Customer.find();
@@ -48,21 +50,8 @@ router.get("/", async (req, res) => {
 });
 // =====================
 // Restore Database
-router.post(
-"/test",
-
-upload.single("backup"),
-
-(req,res)=>{
-
-console.log(req.file);
-
-res.json(req.file);
-
-});
 // =====================
-router.post("/restore",upload.single("backup"),
-async(req,res)=>{
+router.post("/restore", authMiddleware, roleMiddleware("admin"), upload.single("backup"), async (req, res) => {
 
     console.log("req.file =>");
     console.log(req.file);

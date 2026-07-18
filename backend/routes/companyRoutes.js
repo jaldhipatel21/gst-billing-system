@@ -1,3 +1,5 @@
+const authMiddleware = require("../middleware/authMiddleware");
+const roleMiddleware = require("../middleware/roleMiddleware");
 const express = require("express");
 const router = express.Router();
 const Company = require("../models/Company");
@@ -17,7 +19,7 @@ router.get("/", async (req, res) => {
 
 
 // Create or Update Company Details
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, roleMiddleware("admin"), async (req, res) => {
   try {
     const existingCompany = await Company.findOne();
 

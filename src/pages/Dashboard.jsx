@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 function Dashboard() {
   const [customerCount, setCustomerCount] = useState(0);
@@ -8,6 +9,7 @@ function Dashboard() {
   const [sales,setSales]=useState(0);
   const [recentInvoices, setRecentInvoices] = useState([]);
   const [monthlySales, setMonthlySales] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCounts = async () => {
@@ -65,7 +67,16 @@ function Dashboard() {
     <div className="container mt-5">
       <h1 className="text-center fw-bold">GAJANAND Packaging</h1>
       <h1>GST Billing System</h1>
-
+<button
+    className="btn btn-danger float-end"
+    onClick={() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+    }}
+>
+    Logout
+</button>
     
       <div className="row mt-4">
         <div className="col-md-3">
